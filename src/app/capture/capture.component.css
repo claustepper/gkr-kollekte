@@ -1,0 +1,19 @@
+.full-width {
+  width: 300px;
+}
+
+table, th, td {
+  border: 0 solid black;
+}
+
+.money_input {
+  width: 225px;
+}
+
+.money_value {
+  width: 75px;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: right;
+  padding-right: 5px;
+}

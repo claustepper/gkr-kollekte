@@ -1,0 +1,29 @@
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Jou epos adres"
+        ngModel name="email"
+        email
+      >
+      <mat-error>Epos adres is nie geldig nie</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Wagwoord"
+        ngModel
+        name="password"
+        required
+        minlength="6"
+        #password="ngModel"
+      >
+      <mat-hint>Minimum lengte is 6 karakters</mat-hint>
+      <mat-error>Wagwoord is nie geldig nie</mat-error>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </form>
+</section>

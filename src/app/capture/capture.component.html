@@ -1,0 +1,63 @@
+<h1>Kollekte</h1>
+
+<section class="capture-form">
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Diens</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let diens of dienste" [value]="diens.value">
+          {{diens.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Area</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let area of areas" [value]="area.value">
+          {{area.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+
+    <table class="table full-width" cellspacing="0" *ngFor="let value of values"><tr>
+      <td><mat-form-field class="money_input">
+        <input
+          matInput
+          placeholder="{{ value.name }}"
+          type="number"
+          ngModel
+          name="field_{{value.name}}"
+          min="0"
+          required
+          (input)="update(value.value, $event)">
+      </mat-form-field></td>
+      <td><mat-form-field class="money_value">
+        <span matPrefix>R &nbsp;</span>
+        <input disabled  matInput placeholder="{{ value.name }}" [value]="value.subtotal">
+      </mat-form-field></td>
+    </tr></table>
+
+    <mat-form-field class="full-width">
+      <mat-label>Sak Kode</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let bag of bags" [value]="bag.value">
+          {{bag.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input type="text" matInput placeholder="Naam">
+    </mat-form-field>
+  </form>
+</section>
